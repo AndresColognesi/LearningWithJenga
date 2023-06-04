@@ -9,11 +9,40 @@ public class API_Request : MonoBehaviour
 
     // Api request URL:
     private string url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
+    // List of Jenga block data objects:
+    private List<JengaBlockData> dataList;
 
     #endregion
 
 
     #region Custom Methods
+
+    private JengaBlockData TESTParseData(string request_text)
+    {
+        /***
+         * Receives a request text in JSON format and properly stores it
+         * in a list of objects, returning it.
+         ***/
+        Debug.Log(request_text);
+        // Create object to store data:
+        JengaBlockData data = JsonUtility.FromJson<JengaBlockData>(request_text);
+        return data;
+
+    }
+    private AllData ParseData(string request_text)
+    {
+        /***
+         * Receives a request text in JSON format and properly stores it
+         * in a list of objects, returning it.
+         ***/
+        //List<JengaBlockData> dataList = JsonConvert.DeserializeObject<List<JengaBlockData>>(request_text);
+        //return JsonUtility.FromJson<List<JengaBlockData>>(request_text);
+        Debug.Log(request_text);
+        // Create object to store data:
+        AllData dataList = JsonUtility.FromJson<AllData>(request_text);
+        return dataList;
+        
+    }
 
     IEnumerator GetRequest(string uri)
     {
@@ -31,9 +60,15 @@ public class API_Request : MonoBehaviour
                     break;
                 // Success:
                 case UnityWebRequest.Result.Success:
+                    //API call worked:
                     Debug.Log("Deu sucesso!");
-                    Debug.Log(request.downloadHandler.text);
-                    //= JsonUtility.FromJson<PlayerStatus>(request.downloadHandler.text);
+
+                    // Adapt API request text to be a full JSON:
+                    string json_string = "{ \"listOfdata\":" + request.downloadHandler.text + "}";
+                    // Properly store retrieved information in a class:
+                    AllData dataList = new AllData();
+                    dataList = ParseData(json_string);
+                    Debug.Log(dataList.listOfdata);
                     break;
             }
         }
@@ -48,7 +83,10 @@ public class API_Request : MonoBehaviour
     void Start()
     {
         // Execute get request on desired API:
-        StartCoroutine(GetRequest(url));
+        //StartCoroutine(GetRequest(url));
+        string test_data = "{\"id\": 2,\"subject\": \"Math\",\"grade\": \"6th Grade\",\"mastery\": 2,\"domainid\": \"RP\",\"domain\": \"Ratios & Proportional Relationships\",\"cluster\": \"Understand ratio concepts and use ratio reasoning to solve problems.\",\"standardid\": \"CCSS.MATH.CONTENT.6.RP.A.1\",\"standarddescription\": \"oi\"}";
+        JengaBlockData data = TESTParseData(test_data);
+        Debug.Log(data.standarddescription);
     }
 
     #endregion
