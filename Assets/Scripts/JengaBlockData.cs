@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[System.Serializable]
+[System.Serializable]
 public class JengaBlockData
 {
     /***
@@ -25,7 +25,7 @@ public class JengaBlockData
     #endregion
 }
 
-//[System.Serializable]
+[System.Serializable]
 public class AllData
 {
     /***
@@ -35,7 +35,7 @@ public class AllData
 
     #region Attributes
 
-    public List<JengaBlockData> listOfdata { get; set; }
+    public List<JengaBlockData> listOfdata; //{ get; set; }
 
     #endregion
 }
