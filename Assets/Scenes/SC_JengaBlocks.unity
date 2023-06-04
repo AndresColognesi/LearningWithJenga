@@ -463,6 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   APIRequestScript: {fileID: 752595798}
+  JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
+    type: 3}
 --- !u!1 &752595793
 GameObject:
   m_ObjectHideFlags: 0
