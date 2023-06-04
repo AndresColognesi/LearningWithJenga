@@ -138,8 +138,13 @@ public class API_Request : MonoBehaviour
         string test_data2 = "{\"id\": 5,\"subject\": \"Math\",\"grade\": \"6th Grade\",\"mastery\": 2,\"domainid\": \"RP\",\"domain\": \"Ratios & Proportional Relationships\",\"cluster\": \"Understand ratio concepts and use ratio reasoning to solve problems.\",\"standardid\": \"CCSS.MATH.CONTENT.6.RP.A.1\",\"standarddescription\": \"tchau\"}";
         JengaBlockData data2 = TESTParseData(test_data2);
         dataList.Add(data2);
-        Debug.Log(dataList[0].standarddescription);
-        Debug.Log(dataList[1].standarddescription);
+        dataList.Add(data2);
+        dataList.Add(data2);
+        dataList.Add(data2);
+        dataList.Add(data2);
+        dataList.Add(data2);
+        dataList.Add(data2);
+
     }
 
     #endregion
