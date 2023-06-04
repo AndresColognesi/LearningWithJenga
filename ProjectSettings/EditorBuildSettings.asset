@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/SC_Core.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SC_JengaBlocks.unity
+    guid: b0530762d1ddd0847bf13ae6b0cc71a0
+  - enabled: 1
+    path: Assets/Scenes/SC_UI.unity
+    guid: bd05c5870a9085c42b5a3c6ac50100ee
   m_configObjects: {}
