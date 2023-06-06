@@ -9,7 +9,7 @@ public class TowerSpawner : MonoBehaviour
     // Jenga block data script component:
     [SerializeField] private API_Request APIRequestScript;
     // List of jenga block data:
-    private List<JengaBlockData> dataList;
+    private List<JengaBlockData> towerDataList;
 
     // Jenga piece prefab:
     [SerializeField] private GameObject JengaPiecePrefab;
@@ -25,30 +25,33 @@ public class TowerSpawner : MonoBehaviour
 
     #region Custom Methods
     
-    private void TowerSpawn(string name)
+    public void TowerSpawn(List<JengaBlockData> jengaBlocksList)
     {
         /***
-         * Receives the desired tower name and builds it up
-         * spawning all jenga blocks. The information of each block
+         * Receives the desired tower jenga blocks and builds it up
+         * spawning all jenga pieces. The information of each block
          * is stored in the instance of the prefab. The material is
          * set, as well as the object tag, according to the mastery
          * data of the Jenga blocks.
          ***/
 
+        // Store list in this object:
+        towerDataList = jengaBlocksList;
+
         // Create quotient variable for level control:
-        float quotient = 0f;
-        int int_quotient = 0;
+        float quotient;
+        int int_quotient;
         // Coordinates to instantiate piece:
-        float x = 0f;
-        float y = 0f;
-        float z = 0f;
-        Quaternion rotation_angle = new Quaternion(0f, 0f, 0f, 0f);
-        float lateral_displacement = 0f;
+        float x;
+        float y;
+        float z;
+        Quaternion rotation_angle;
+        float lateral_displacement;
 
         // Index for position within the jenga tower level:
         int in_level_count = 1;
         // Loop over data list:
-        for (int i = 0; i < dataList.Count; i++)
+        for (int i = 0; i < jengaBlocksList.Count; i++)
         {
             // Calculate lateral displacement:
             if (in_level_count == 1)
@@ -109,24 +112,14 @@ public class TowerSpawner : MonoBehaviour
 
     #endregion
 
+
     #region Built-in Methods
+
     // Start is called before the first frame update
     void Start()
     {
-        // Get current tower jenga block data:
-        // FAZER UM LOOP AQUI MAS AGORA É TESTE:
-        dataList = APIRequestScript.GetBlockList(); //usar o towerName depois aqui pra pegar a lista desejada
-        Debug.Log(dataList[0].standarddescription);
-        Debug.Log(dataList[1].standarddescription);
-
-        // Spawn full tower:
-        TowerSpawn(towerName);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+
     #endregion
 }

@@ -8,10 +8,17 @@ public class API_Request : MonoBehaviour
 {
     #region Parameters
 
+    // Tower Spawner script components:
+    [SerializeField] private TowerSpawner TowerSpawner6thGrade;
+    [SerializeField] private TowerSpawner TowerSpawner7thGrade;
+    [SerializeField] private TowerSpawner TowerSpawner8thGrade;
+
     // Api request URL:
     private string url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
     // List of Jenga block data objects:
-    private List<JengaBlockData> dataList;
+    private List<JengaBlockData> Pieces6thGradeList = new List<JengaBlockData>();
+    private List<JengaBlockData> Pieces7thGradeList = new List<JengaBlockData>();
+    private List<JengaBlockData> Pieces8thGradeList = new List<JengaBlockData>();
 
     #endregion
 
@@ -62,13 +69,35 @@ public class API_Request : MonoBehaviour
          * Receives a request text in JSON format and properly stores it
          * in a list of objects, returning it.
          ***/
-        //List<JengaBlockData> dataList = JsonConvert.DeserializeObject<List<JengaBlockData>>(request_text);
-        //return JsonUtility.FromJson<List<JengaBlockData>>(request_text);
-        Debug.Log(request_text);
+
         // Create object to store data:
         JengaBlockDataListObject dataList = JsonUtility.FromJson<JengaBlockDataListObject>(request_text);
         return dataList;
         
+    }
+
+    private void DataPreProcessing(JengaBlockDataListObject fullDataList)
+    {
+        /***
+         * Loops over all data and stores is in separate lists, one for each
+         * tower.
+         ***/
+
+        foreach (JengaBlockData block in fullDataList.jengaBlockDataList)
+        {
+            if (block.grade == "6th Grade")
+            {
+                Pieces6thGradeList.Add(block);
+            }
+            else if (block.grade == "7th Grade")
+            {
+                Pieces7thGradeList.Add(block);
+            }
+            else if (block.grade == "8th Grade")
+            {
+                Pieces8thGradeList.Add(block);
+            }
+        }
     }
 
     IEnumerator GetRequest(string uri)
@@ -93,19 +122,37 @@ public class API_Request : MonoBehaviour
                     // Adapt API request text to be a full JSON:
                     string json_string = "{ \"jengaBlockDataList\":" + request.downloadHandler.text + "}";
                     // Properly store retrieved information in a class:
-                    JengaBlockDataListObject dataList = ParseData(json_string);
-                    Debug.Log(dataList.jengaBlockDataList.Count);
+                    JengaBlockDataListObject fullDataList = ParseData(json_string);
+                    Debug.Log(fullDataList.jengaBlockDataList.Count);
+                    
+                    // Separate data in 3 lists, one for each Jenga tower:
+                    DataPreProcessing(fullDataList);
+                    // Spawns all 3 towers:
+                    TowerSpawner6thGrade.TowerSpawn(Pieces6thGradeList);
+                    TowerSpawner7thGrade.TowerSpawn(Pieces7thGradeList);
+                    TowerSpawner8thGrade.TowerSpawn(Pieces8thGradeList);
                     break;
             }
         }
     }
 
-    public List<JengaBlockData> GetBlockList()
+    public List<JengaBlockData> GetTowerPiecesList(string towerName)
     {
         /***
-         * Retrieve the list of Jenga Blocks of this object.
+         * Retrieve the list of Jenga Blocks for the given tower. The
+         * name of the tower follows the received payload format.
          ***/
-        return dataList;
+        switch (towerName)
+        {
+            case "6th Grade":
+                return Pieces6thGradeList;
+            case "7th Grade":
+                return Pieces7thGradeList;
+            case "8th Grade":
+                return Pieces8thGradeList;
+            default: // return empty list
+                return new List<JengaBlockData>();
+        }
     }
 
     #endregion
