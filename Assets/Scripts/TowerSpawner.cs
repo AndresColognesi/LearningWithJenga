@@ -13,8 +13,6 @@ public class TowerSpawner : MonoBehaviour
 
     // Jenga piece prefab:
     [SerializeField] private GameObject JengaPiecePrefab;
-    // Desired tower identifier:
-    [SerializeField] private string towerName;
 
     // Staking offset values:
     private float height_offset = 0.015f;
