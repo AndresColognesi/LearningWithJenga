@@ -56,7 +56,7 @@ public class API_Request : MonoBehaviour
 
     }
 
-    private AllData ParseData(string request_text)
+    private JengaBlockDataListObject ParseData(string request_text)
     {
         /***
          * Receives a request text in JSON format and properly stores it
@@ -66,7 +66,7 @@ public class API_Request : MonoBehaviour
         //return JsonUtility.FromJson<List<JengaBlockData>>(request_text);
         Debug.Log(request_text);
         // Create object to store data:
-        AllData dataList = JsonUtility.FromJson<AllData>(request_text);
+        JengaBlockDataListObject dataList = JsonUtility.FromJson<JengaBlockDataListObject>(request_text);
         return dataList;
         
     }
@@ -91,10 +91,10 @@ public class API_Request : MonoBehaviour
                     Debug.Log("Deu sucesso!");
 
                     // Adapt API request text to be a full JSON:
-                    string json_string = "{ \"listOfdata\":" + request.downloadHandler.text + "}";
+                    string json_string = "{ \"jengaBlockDataList\":" + request.downloadHandler.text + "}";
                     // Properly store retrieved information in a class:
-                    AllData dataList = ParseData(json_string);
-                    Debug.Log(dataList.listOfdata);
+                    JengaBlockDataListObject dataList = ParseData(json_string);
+                    Debug.Log(dataList.jengaBlockDataList.Count);
                     break;
             }
         }
@@ -117,7 +117,7 @@ public class API_Request : MonoBehaviour
     void Awake()
     {
         // Execute get request on desired API:
-        //StartCoroutine(GetRequest(url));
+        StartCoroutine(GetRequest(url));
         //string test_data = "{\"id\": 2,\"subject\": \"Math\",\"grade\": \"6th Grade\",\"mastery\": 2,\"domainid\": \"RP\",\"domain\": \"Ratios & Proportional Relationships\",\"cluster\": \"Understand ratio concepts and use ratio reasoning to solve problems.\",\"standardid\": \"CCSS.MATH.CONTENT.6.RP.A.1\",\"standarddescription\": \"oi\"}";
         //JengaBlockData data = TESTParseData(test_data);
         //Debug.Log(data.standarddescription);
@@ -131,7 +131,7 @@ public class API_Request : MonoBehaviour
         
 
         // CREATE TEST DATA LIST TO FINISH PROJECT:
-        dataList = new List<JengaBlockData>();
+        /*dataList = new List<JengaBlockData>();
         string test_data = "{\"id\": 2,\"subject\": \"Math\",\"grade\": \"6th Grade\",\"mastery\": 2,\"domainid\": \"RP\",\"domain\": \"Ratios & Proportional Relationships\",\"cluster\": \"Understand ratio concepts and use ratio reasoning to solve problems.\",\"standardid\": \"CCSS.MATH.CONTENT.6.RP.A.1\",\"standarddescription\": \"oi\"}";
         JengaBlockData data = TESTParseData(test_data);
         dataList.Add(data);
@@ -143,7 +143,7 @@ public class API_Request : MonoBehaviour
         dataList.Add(data2);
         dataList.Add(data2);
         dataList.Add(data2);
-        dataList.Add(data2);
+        dataList.Add(data2);*/
 
     }
 

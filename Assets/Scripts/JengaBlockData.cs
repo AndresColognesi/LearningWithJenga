@@ -10,7 +10,6 @@ public class JengaBlockData
      * block, to serve as a dictionary.
      ***/
 
-    #region Attributes
 
     public int id; //{ get; set; }
     public string subject; //{ get; set; }
@@ -22,20 +21,15 @@ public class JengaBlockData
     public string standardid; //{ get; set; }
     public string standarddescription; //{ get; set; }
 
-    #endregion
 }
 
 [System.Serializable]
-public class AllData
+public class JengaBlockDataListObject
 {
     /***
      * A class that stores a list of JengaBlockData
      * objects.
      ***/
 
-    #region Attributes
-
-    public List<JengaBlockData> listOfdata; //{ get; set; }
-
-    #endregion
+    public List<JengaBlockData> jengaBlockDataList; //{ get; set; }
 }
