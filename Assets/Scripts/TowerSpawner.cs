@@ -6,8 +6,6 @@ public class TowerSpawner : MonoBehaviour
 {
     #region Parameters
 
-    // Jenga block data script component:
-    [SerializeField] private API_Request APIRequestScript;
     // List of jenga block data:
     private List<JengaBlockData> towerDataList;
 
@@ -23,14 +21,14 @@ public class TowerSpawner : MonoBehaviour
 
     #region Custom Methods
     
-    public void TowerSpawn(List<JengaBlockData> jengaBlocksList)
+    public void TowerSpawn(List<JengaBlockData> jengaBlocksList, Vector3 towerOffset)
     {
         /***
          * Receives the desired tower jenga blocks and builds it up
-         * spawning all jenga pieces. The information of each block
-         * is stored in the instance of the prefab. The material is
-         * set, as well as the object tag, according to the mastery
-         * data of the Jenga blocks.
+         * spawning all jenga pieces oh the proper offset position.
+         * The information of each block is stored in the instance 
+         * of the prefab. The material is set, as well as the object
+         * tag, according to the mastery data of the Jenga blocks.
          ***/
 
         // Store list in this object:
@@ -93,7 +91,7 @@ public class TowerSpawner : MonoBehaviour
             
 
             // Instantiate jenga piece object based on local displacements, parented to this game object:
-            Instantiate(JengaPiecePrefab, new Vector3(x, y, z), rotation_angle, gameObject.transform);
+            Instantiate(JengaPiecePrefab, new Vector3(x, y, z) + towerOffset, rotation_angle, gameObject.transform);
 
             // Update level counter:
             if (in_level_count < 3)

@@ -12,6 +12,10 @@ public class API_Request : MonoBehaviour
     [SerializeField] private TowerSpawner TowerSpawner6thGrade;
     [SerializeField] private TowerSpawner TowerSpawner7thGrade;
     [SerializeField] private TowerSpawner TowerSpawner8thGrade;
+    // Tower offsets:
+    [SerializeField] private Transform TowerPositionTransform6thGrade;
+    [SerializeField] private Transform TowerPositionTransform7thGrade;
+    [SerializeField] private Transform TowerPositionTransform8thGrade;
 
     // Api request URL:
     private string url = "https://ga1vqcu3o1.execute-api.us-east-1.amazonaws.com/Assessment/stack";
@@ -90,9 +94,9 @@ public class API_Request : MonoBehaviour
                     // Separate data in 3 lists, one for each Jenga tower:
                     DataPreProcessing(fullDataList);
                     // Spawns all 3 towers:
-                    TowerSpawner6thGrade.TowerSpawn(Pieces6thGradeList);
-                    TowerSpawner7thGrade.TowerSpawn(Pieces7thGradeList);
-                    TowerSpawner8thGrade.TowerSpawn(Pieces8thGradeList);
+                    TowerSpawner6thGrade.TowerSpawn(Pieces6thGradeList, TowerPositionTransform6thGrade.position);
+                    TowerSpawner7thGrade.TowerSpawn(Pieces7thGradeList, TowerPositionTransform7thGrade.position);
+                    TowerSpawner8thGrade.TowerSpawn(Pieces8thGradeList, TowerPositionTransform8thGrade.position);
                     break;
             }
         }

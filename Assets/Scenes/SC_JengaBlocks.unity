@@ -268,8 +268,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 899168840}
+  m_Children: []
   m_Father: {fileID: 752595797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,8 +414,7 @@ Transform:
   m_LocalPosition: {x: -0.3, y: 0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 692073309}
+  m_Children: []
   m_Father: {fileID: 752595797}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -449,7 +447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 523899037}
+  m_Father: {fileID: 1100898998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &692073310
@@ -464,10 +462,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020780c654af5f4299cec4b65e0e0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APIRequestScript: {fileID: 752595798}
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
-  stackTransform: {fileID: 523899037}
+--- !u!1 &692633273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692633275}
+  - component: {fileID: 692633274}
+  m_Layer: 0
+  m_Name: JengaSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &692633274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692633273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48934810412253941869b3ab520082a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerSpawner6thGrade: {fileID: 692073310}
+  TowerSpawner7thGrade: {fileID: 899168839}
+  TowerSpawner8thGrade: {fileID: 1607681869}
+  TowerPositionTransform6thGrade: {fileID: 523899037}
+  TowerPositionTransform7thGrade: {fileID: 379954039}
+  TowerPositionTransform8thGrade: {fileID: 2134492662}
+--- !u!4 &692633275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692633273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &752595793
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +526,6 @@ GameObject:
   - component: {fileID: 752595796}
   - component: {fileID: 752595795}
   - component: {fileID: 752595794}
-  - component: {fileID: 752595798}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -569,21 +614,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &752595798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752595793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48934810412253941869b3ab520082a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerSpawner6thGrade: {fileID: 692073310}
-  TowerSpawner7thGrade: {fileID: 899168839}
-  TowerSpawner8thGrade: {fileID: 1607681869}
 --- !u!1 &899168838
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,10 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020780c654af5f4299cec4b65e0e0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APIRequestScript: {fileID: 752595798}
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
-  stackTransform: {fileID: 379954039}
 --- !u!4 &899168840
 Transform:
   m_ObjectHideFlags: 0
@@ -629,8 +657,42 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 379954039}
-  m_RootOrder: 0
+  m_Father: {fileID: 1100898998}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1100898997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100898998}
+  m_Layer: 0
+  m_Name: TowerSpawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1100898998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100898997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 692073309}
+  - {fileID: 899168840}
+  - {fileID: 1607681870}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1607681868
 GameObject:
@@ -661,10 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020780c654af5f4299cec4b65e0e0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APIRequestScript: {fileID: 752595798}
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
-  stackTransform: {fileID: 2134492662}
 --- !u!4 &1607681870
 Transform:
   m_ObjectHideFlags: 0
@@ -677,8 +737,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2134492662}
-  m_RootOrder: 0
+  m_Father: {fileID: 1100898998}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134492661
 GameObject:
@@ -707,8 +767,7 @@ Transform:
   m_LocalPosition: {x: 0.3, y: 0.015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1607681870}
+  m_Children: []
   m_Father: {fileID: 752595797}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
