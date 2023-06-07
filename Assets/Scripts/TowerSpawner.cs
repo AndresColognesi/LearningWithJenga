@@ -19,6 +19,7 @@ public class TowerSpawner : MonoBehaviour
 
     #endregion
 
+
     #region Custom Methods
     
     public void TowerSpawn(List<JengaBlockData> jengaBlocksList, Vector3 towerOffset)
@@ -91,7 +92,10 @@ public class TowerSpawner : MonoBehaviour
             
 
             // Instantiate jenga piece object based on local displacements, parented to this game object:
-            Instantiate(JengaPiecePrefab, new Vector3(x, y, z) + towerOffset, rotation_angle, gameObject.transform);
+            GameObject piece = Instantiate(JengaPiecePrefab, new Vector3(x, y, z) + towerOffset, rotation_angle, gameObject.transform);
+
+            // Store the piece data in the instanciated object:
+            piece.GetComponent<PieceDataStorage>().SetPieceData(jengaBlocksList[i]);
 
             // Update level counter:
             if (in_level_count < 3)

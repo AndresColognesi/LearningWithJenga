@@ -82,14 +82,10 @@ public class API_Request : MonoBehaviour
                     break;
                 // Success:
                 case UnityWebRequest.Result.Success:
-                    //API call worked:
-                    Debug.Log("Deu sucesso!");
-
                     // Adapt API request text to be a full JSON:
                     string json_string = "{ \"jengaBlockDataList\":" + request.downloadHandler.text + "}";
                     // Properly store retrieved information in a class:
                     JengaBlockDataListObject fullDataList = ParseData(json_string);
-                    Debug.Log(fullDataList.jengaBlockDataList.Count);
                     
                     // Separate data in 3 lists, one for each Jenga tower:
                     DataPreProcessing(fullDataList);
