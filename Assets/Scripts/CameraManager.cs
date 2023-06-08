@@ -9,6 +9,9 @@ public class CameraManager : MonoBehaviour
     // Array of transforms for desired camera anchors:
     [SerializeField] private Transform[] cameraAnchorArray;
 
+    // Store current stack on focus:
+    private int currentStackIndex;
+
     #endregion
 
 
@@ -38,6 +41,17 @@ public class CameraManager : MonoBehaviour
         // Set position and rotation of camera:
         gameObject.transform.position = cameraAnchorArray[desired_index].position;
         gameObject.transform.rotation = cameraAnchorArray[desired_index].rotation;
+        // Store current stack that is focused on:
+        currentStackIndex = desired_index;
+    }
+
+    public int GetCurrentStackIndex()
+    {
+        /***
+         * Retrieve index of current tower on focus.
+         ***/
+
+        return currentStackIndex;
     }
 
     #endregion
