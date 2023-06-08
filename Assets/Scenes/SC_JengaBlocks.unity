@@ -464,6 +464,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
+  materialArray:
+  - {fileID: 2100000, guid: aa62ecdf65d8f4f4594ef6ef679fa86c, type: 2}
+  - {fileID: 2100000, guid: 61fb263064c89fa4fbd6e7a97ba1405b, type: 2}
+  - {fileID: 2100000, guid: ca13c67e88ac55244b4302dd34368e19, type: 2}
 --- !u!1 &692633273
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +649,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
+  materialArray:
+  - {fileID: 2100000, guid: aa62ecdf65d8f4f4594ef6ef679fa86c, type: 2}
+  - {fileID: 2100000, guid: 61fb263064c89fa4fbd6e7a97ba1405b, type: 2}
+  - {fileID: 2100000, guid: ca13c67e88ac55244b4302dd34368e19, type: 2}
 --- !u!4 &899168840
 Transform:
   m_ObjectHideFlags: 0
@@ -725,6 +733,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JengaPiecePrefab: {fileID: 272206689109689264, guid: e23fbe067627db840b8ff154bac6a73f,
     type: 3}
+  materialArray:
+  - {fileID: 2100000, guid: aa62ecdf65d8f4f4594ef6ef679fa86c, type: 2}
+  - {fileID: 2100000, guid: 61fb263064c89fa4fbd6e7a97ba1405b, type: 2}
+  - {fileID: 2100000, guid: ca13c67e88ac55244b4302dd34368e19, type: 2}
 --- !u!4 &1607681870
 Transform:
   m_ObjectHideFlags: 0

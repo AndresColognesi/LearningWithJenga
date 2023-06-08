@@ -34,6 +34,16 @@ public class PieceDataStorage : MonoBehaviour
         return new string[] { pieceData.grade, pieceData.domain, pieceData.cluster, pieceData.standardid, pieceData.standarddescription };
     }
 
+    public int GetMasteryValue()
+    {
+        /***
+         * Return the mastery level stored on this current piece
+         * object.
+         ***/
+
+        return pieceData.mastery;
+    }
+
     #endregion
 
 

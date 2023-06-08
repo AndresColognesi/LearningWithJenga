@@ -12,6 +12,9 @@ public class TowerSpawner : MonoBehaviour
     // Jenga piece prefab:
     [SerializeField] private GameObject JengaPiecePrefab;
 
+    // Material array:
+    [SerializeField] private Material[] materialArray;
+
     // Staking offset values:
     private float height_offset = 0.015f;
     private float lateral_offset = 0.025f;
@@ -96,6 +99,18 @@ public class TowerSpawner : MonoBehaviour
 
             // Store the piece data in the instanciated object:
             piece.GetComponent<PieceDataStorage>().SetPieceData(jengaBlocksList[i]);
+
+            // Store mastery current level:
+            int masteryLevel = piece.GetComponent<PieceDataStorage>().GetMasteryValue();
+            // Set material of current piece based on mastery level:
+            piece.GetComponent<Renderer>().material = materialArray[masteryLevel];
+            // Set piece mass based on mastery level:
+            piece.GetComponent<Rigidbody>().mass = masteryLevel;
+            // Set glass tag if mastery level 0 piece:
+            if (masteryLevel == 0)
+            {
+                piece.tag = "Glass";
+            }
 
             // Update level counter:
             if (in_level_count < 3)
