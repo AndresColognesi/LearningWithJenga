@@ -22,7 +22,9 @@ public class CameraManager : MonoBehaviour
     private Vector3 smoothVelocity = Vector3.zero;
     [SerializeField] private float smoothTime = 0.2f;
     // Rotation limits in Euler Angles:
-    [SerializeField] private Vector2 rotationXMinMax = new Vector2(-30, 30);
+    [SerializeField] private Vector2 rotationXMinMax = new Vector2(15, 40);
+    // Height offset to rotate camera around tower:
+    [SerializeField] private float towerHeightOffset = 0.1f;
 
     // Store current stack on focus:
     private int currentStackIndex;
@@ -80,7 +82,7 @@ public class CameraManager : MonoBehaviour
          ***/
 
         // Get mouse left click input:
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseX = -Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
         // Update current axis rotations:
         rotationY += mouseX;
@@ -94,7 +96,7 @@ public class CameraManager : MonoBehaviour
         transform.localEulerAngles = currentRotation;
 
         // Point camera to stack and place in defined distance:
-        transform.position = stackTransformArray[currentStackIndex].position - transform.forward * currentRadius;
+        transform.position = (stackTransformArray[currentStackIndex].position + new Vector3(0f, towerHeightOffset, 0f)) - transform.forward * currentRadius;
     }
 
     #endregion
@@ -111,7 +113,11 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        MouseCameraRotation();
+        // When right mouse click remains pressed:
+        if (Input.GetMouseButton(1))
+        {
+            MouseCameraRotation();
+        }
     }
 
     #endregion

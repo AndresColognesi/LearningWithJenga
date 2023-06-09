@@ -371,6 +371,10 @@ MonoBehaviour:
   - {fileID: 523899037}
   - {fileID: 379954039}
   - {fileID: 2134492662}
+  mouseSensitivity: 3
+  smoothTime: 0.2
+  rotationXMinMax: {x: 15, y: 40}
+  towerHeightOffset: 0.1
 --- !u!1 &375979525
 GameObject:
   m_ObjectHideFlags: 0
