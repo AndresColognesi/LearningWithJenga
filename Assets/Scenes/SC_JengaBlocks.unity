@@ -367,6 +367,10 @@ MonoBehaviour:
   - {fileID: 649644674}
   - {fileID: 55057317}
   - {fileID: 1492199628}
+  stackTransformArray:
+  - {fileID: 523899037}
+  - {fileID: 379954039}
+  - {fileID: 2134492662}
 --- !u!1 &375979525
 GameObject:
   m_ObjectHideFlags: 0
