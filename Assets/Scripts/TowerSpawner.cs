@@ -99,6 +99,8 @@ public class TowerSpawner : MonoBehaviour
 
             // Store the piece data in the instanciated object:
             piece.GetComponent<PieceDataStorage>().SetPieceData(jengaBlocksList[i]);
+            // Write proper information in the Piece canvas:
+            piece.GetComponent<PieceDataStorage>().SetDisplayInfo();
 
             // Store mastery current level:
             int masteryLevel = piece.GetComponent<PieceDataStorage>().GetMasteryValue();

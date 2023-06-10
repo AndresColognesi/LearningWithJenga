@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PieceDataStorage : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PieceDataStorage : MonoBehaviour
 
     // Data container for current Jenga Piece:
     private JengaBlockData pieceData;
+
+    // Canvas:
+    [SerializeField] private GameObject pieceCanvas;
+    // Canvas text array:
+    [SerializeField] private TextMeshProUGUI[] textArray;
 
     #endregion
 
@@ -24,14 +30,16 @@ public class PieceDataStorage : MonoBehaviour
         pieceData = data;
     }
 
-    public string[] GetDisplayInfo()
+    public void SetDisplayInfo()
     {
         /***
-         * Return the strings of this block to be displayed
-         * when selecting the piece.
+         * Set the desired information in the piece canvas texts.
          ***/
 
-        return new string[] { pieceData.grade, pieceData.domain, pieceData.cluster, pieceData.standardid, pieceData.standarddescription };
+        textArray[0].text = pieceData.grade + ": " + pieceData.domain;
+        textArray[1].text = pieceData.cluster;
+        textArray[2].text = pieceData.standardid + ": " + pieceData.standarddescription;
+
     }
 
     public int GetMasteryValue()
@@ -44,21 +52,23 @@ public class PieceDataStorage : MonoBehaviour
         return pieceData.mastery;
     }
 
+    public void DisableCanvas()
+    {
+        /***
+         * Disables the piece canvas component.
+         ***/
+        pieceCanvas.SetActive(false);
+    }
+
     #endregion
 
 
     #region Built-in Methods
 
-    // Start is called before the first frame update
-    void Start()
+    void OnMouseDown()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Enable piece canvas with desired info:
+        pieceCanvas.SetActive(true);
     }
 
     #endregion
