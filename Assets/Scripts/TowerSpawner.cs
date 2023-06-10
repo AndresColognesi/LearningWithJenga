@@ -110,7 +110,7 @@ public class TowerSpawner : MonoBehaviour
             // Set material of current piece based on mastery level:
             piece.GetComponent<Renderer>().material = materialArray[masteryLevel];
             // Set piece mass based on mastery level:
-            piece.GetComponent<Rigidbody>().mass = masteryLevel/100;
+            piece.GetComponent<Rigidbody>().mass = masteryLevel;
             // Set glass tag if mastery level 0 piece:
             if (masteryLevel == 0)
             {
