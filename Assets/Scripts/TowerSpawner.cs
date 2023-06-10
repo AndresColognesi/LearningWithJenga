@@ -8,6 +8,8 @@ public class TowerSpawner : MonoBehaviour
 
     // List of jenga block data:
     private List<JengaBlockData> towerDataList;
+    // Tower position reference:
+    private Vector3 towerPosition;
 
     // Jenga piece prefab:
     [SerializeField] private GameObject JengaPiecePrefab;
@@ -35,8 +37,9 @@ public class TowerSpawner : MonoBehaviour
          * tag, according to the mastery data of the Jenga blocks.
          ***/
 
-        // Store list in this object:
+        // Store list and position in this object:
         towerDataList = jengaBlocksList;
+        towerPosition = towerOffset;
 
         // Create quotient variable for level control:
         float quotient;
@@ -125,6 +128,14 @@ public class TowerSpawner : MonoBehaviour
                 in_level_count = 1;
             }
         }
+    }
+
+    public void RebuidTower()
+    {
+        /***
+         * Rebuild tower based on saved values.
+         ***/
+        TowerSpawn(towerDataList, towerPosition);
     }
 
     #endregion
