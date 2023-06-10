@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions; //for REGEX
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Linq; // For sorting
 
 public class API_Request : MonoBehaviour
 {
@@ -46,9 +46,11 @@ public class API_Request : MonoBehaviour
     {
         /***
          * Loops over all data and stores is in separate lists, one for each
-         * tower.
+         * tower. Then sorts it by domain name, then by cluster, then by standard
+         * ID.
          ***/
 
+        // Separate and store data:
         foreach (JengaBlockData block in fullDataList.jengaBlockDataList)
         {
             if (block.grade == "6th Grade")
@@ -64,6 +66,10 @@ public class API_Request : MonoBehaviour
                 Pieces8thGradeList.Add(block);
             }
         }
+        // Sort all data:
+        Pieces6thGradeList.OrderBy(piece => piece.domainid).ThenBy(piece => piece.cluster).ThenBy(piece => piece.standardid);
+        Pieces7thGradeList.OrderBy(piece => piece.domainid).ThenBy(piece => piece.cluster).ThenBy(piece => piece.standardid);
+        Pieces8thGradeList.OrderBy(piece => piece.domainid).ThenBy(piece => piece.cluster).ThenBy(piece => piece.standardid);
     }
 
     IEnumerator GetRequest(string uri)
