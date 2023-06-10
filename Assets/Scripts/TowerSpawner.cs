@@ -20,7 +20,7 @@ public class TowerSpawner : MonoBehaviour
     // Staking offset values:
     private float height_offset = 0.015f;
     private float lateral_offset = 0.025f;
-    private float epsilon = 0.001f; //so that pieces don't clip on each other
+    private float epsilon = 0f;//0.0001f; //so that pieces don't clip on each other
 
     #endregion
 
@@ -110,7 +110,7 @@ public class TowerSpawner : MonoBehaviour
             // Set material of current piece based on mastery level:
             piece.GetComponent<Renderer>().material = materialArray[masteryLevel];
             // Set piece mass based on mastery level:
-            piece.GetComponent<Rigidbody>().mass = masteryLevel;
+            piece.GetComponent<Rigidbody>().mass = masteryLevel/100;
             // Set glass tag if mastery level 0 piece:
             if (masteryLevel == 0)
             {
