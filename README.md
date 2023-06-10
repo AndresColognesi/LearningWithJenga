@@ -4,7 +4,7 @@ This repo contains an Unity game project (and all used assets) that illustrates 
 
 **NOTE:** If, for any chance, the API is not running anymore, the `samplePayload.txt` file of this repo contains the data retrieved from it, so that this project can still work with minor adjustments on the `API_Request.cs` script.
 
-!! COLOCAR IMAGEM AQUI !!
+![Game View](README_Assets/GameView.png)
 
 
 ---
