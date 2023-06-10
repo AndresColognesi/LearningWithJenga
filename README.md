@@ -18,4 +18,4 @@ To properly run this project you will need to have installed:
 ---
 # Project Overview
 
-!! COLOCAR VIDEO EXPLICATIVO !!
+A quick demonstration and explanation video of this project is stored inside the `/README_Assets` folder. Take a look on it for a general overview of the project.
